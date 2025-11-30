@@ -1,0 +1,15 @@
+.logo{
+    
+    margin-left:5px;
+    padding-top:30px;
+    cursor:pointer;
+    
+}
+
+.custom-css {
+    background: rgba(0, 0, 18, 0.35);  
+    backdrop-filter: blur(52px);          
+    -webkit-backdrop-filter: blur(12px);  
+    border: 1px solid rgba(255, 255, 255, 0.25); 
+                    
+}

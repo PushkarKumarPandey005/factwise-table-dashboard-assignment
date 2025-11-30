@@ -1,0 +1,158 @@
+
+.grid-desine {
+  background: linear-gradient(145deg, #eef3ff, #d1e0fc) !important;
+  border-radius: 18px;
+  border: 1px solid rgba(140, 180, 255, 0.4);
+  box-shadow: 0px 8px 25px rgba(0, 60, 160, 0.1);
+  backdrop-filter: blur(8px);
+  --ag-header-height: 55px !important;
+  --ag-row-height: 45px !important;
+}
+
+/* header design */
+.ag-theme-alpine.grid-desine .ag-header {
+  background: linear-gradient(to right, #d7e6ff, #c8dbff) !important;
+  border-bottom: 2px solid #8bb4ff !important;
+}
+
+.ag-theme-alpine.grid-desine .ag-header-cell-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #0469f7 !important;
+  height: 100% !important;
+  padding: 0 8px !important;
+}
+
+/* rows */
+.ag-theme-alpine.grid-desine .ag-row {
+  background: #ffffff !important;
+ 
+  margin: 0 !important;
+  transition: 0.12s ease !important;
+  box-shadow: none !important;
+}
+
+.ag-theme-alpine.grid-desine .ag-row-hover {
+  background: #f3f7ff !important;
+}
+
+/* cells */
+.ag-theme-alpine.grid-desine .ag-cell {
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 10px !important;
+  border-right: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .grid-desine {
+    --ag-header-height: 48px !important;
+    border-radius: 12px;
+  }
+
+  .ag-theme-alpine.grid-desine .ag-header-cell-label {
+    font-size: 11px !important;
+    padding: 0 4px !important;
+  }
+
+  .ag-theme-alpine.grid-desine .ag-cell {
+    font-size: 11px !important;
+    padding-left: 6px !important;
+  }
+
+  .ag-theme-alpine.grid-desine .ag-row {
+    margin: 3px 0 !important;
+  }
+
+  .ag-theme-alpine.grid-desine .ag-paging-panel {
+    font-size: 11px !important;
+  }
+}
+
+/* Mobile HTML table styling used when AG Grid is not ideal on very small screens */
+.mobile-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.mobile-table thead th {
+  background: #e6eefb;
+  color: #03306b;
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid #d6e3fb;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.mobile-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5fb;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #203247;
+}
+.mobile-table tr:nth-child(even) td {
+  background: #fbfdff;
+}
+
+@media (max-width: 420px) {
+  .mobile-table thead th { font-size: 11px; padding: 6px 8px; }
+  .mobile-table tbody td { font-size: 12px; padding: 8px 8px; }
+}
+
+/* badges */
+.active-badge {
+  color: #1302fa;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.inactive-badge {
+  color: #fb0303;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .active-badge,
+  .inactive-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+}
+
+/* pagination */
+.ag-theme-alpine.grid-desine .ag-paging-panel {
+  background: transparent !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #03138a !important;
+  margin-top: 8px;
+}
+
+.cell-id,
+.cell-dept,
+.cell-email,
+.cell-position,
+.cell-name,
+.cell-location {
+    color: #334d6e !important;
+    font-weight: 600 !important;
+    
+    cursor: pointer;
+}
+
