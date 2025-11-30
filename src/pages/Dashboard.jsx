@@ -8,7 +8,7 @@ import { AiOutlineClose } from "react-icons/ai";
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  
+
   const employees = employeeData.employees;
 
   // used for counts
@@ -25,12 +25,13 @@ function Dashboard() {
 
   return (
     <div className="w-full min-h-screen bg-[#e6e7eb]">
-      
+
       {/* Mobile Header with Hamburger */}
       <div className="md:hidden bg-[#2f3c70] text-white p-4 flex items-center justify-between 
                                                  fixed top-0 left-0 right-0 z-40 shadow-lg">
         <h1 className="text-xl font-bold">Dashboard</h1>
-        <button 
+
+        <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="text-2xl hover:bg-[#3d4a7f] p-2 rounded transition"
         >
@@ -39,17 +40,16 @@ function Dashboard() {
       </div>
 
       <div className="flex">
-        
+
         {/* Sidebar - Hidden on mobile, shown with hamburger */}
-        <div className={`fixed md:relative z-30 transition-all duration-300 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-        }`}>
+        <div className={`fixed md:relative z-30 transition-all duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+          }`}>
           <Sidebar onClose={() => setSidebarOpen(false)} />
         </div>
 
         {/* Overlay for mobile when sidebar is open */}
         {sidebarOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-50 md:hidden z-20"
             onClick={() => setSidebarOpen(false)}
           />
@@ -74,7 +74,7 @@ function Dashboard() {
           </div>
 
           {/* Table with Search and Filter */}
-          <div className="mt-4 md:mt-6 w-full bg-[#e6e7eb] px-4 md:px-6 lg:px-8 pb-6 flex-1 overflow-auto">
+          <div className="mt-4 pl-0 table-container md:mt-6 w-350 bg-[#e6e7eb] px-2 md:px-6 lg:px-8 pb-6 flex-1 overflow-auto">
             <Table employees={employees} />
           </div>
 

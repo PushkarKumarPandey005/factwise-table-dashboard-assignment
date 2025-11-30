@@ -5,25 +5,42 @@
   border: 1px solid rgba(140, 180, 255, 0.4);
   box-shadow: 0px 8px 25px rgba(0, 60, 160, 0.1);
   backdrop-filter: blur(8px);
-  --ag-header-height: 55px !important;
-  --ag-row-height: 45px !important;
+  --ag-header-height: 90px !important;
+  --ag-row-height: 48px !important;
 }
 
 /* header design */
 .ag-theme-alpine.grid-desine .ag-header {
   background: linear-gradient(to right, #d7e6ff, #c8dbff) !important;
-  border-bottom: 2px solid #8bb4ff !important;
+  border-bottom: 2px solid #8298c2 !important;
+  height: 90px !important;
+  padding-top:14px;
+  padding-bottom: 15px;
+  align-items:center !important;
+  
 }
 
+.ag-theme-alpine.grid-desine {
+  --ag-header-height: 90px !important;
+}
+
+
 .ag-theme-alpine.grid-desine .ag-header-cell-label {
-  display: flex !important;
+   display: flex !important;
   align-items: center !important;
-  justify-content: flex-start !important;
-  font-size: 15px !important;
+  justify-content: center !important;
+
+  font-size: 16px !important;
   font-weight: 800 !important;
   color: #0469f7 !important;
-  height: 100% !important;
-  padding: 0 8px !important;
+
+  
+  height: auto !important;        
+  white-space: nowrap !important;  
+  text-align: center !important;
+  line-height: normal !important;
+
+  padding: 0 8px !important;      
 }
 
 /* rows */
@@ -36,45 +53,59 @@
 }
 
 .ag-theme-alpine.grid-desine .ag-row-hover {
-  background: #f3f7ff !important;
+  background: #babbbc !important;
+  font-weight:bold !important;
+  
+  
 }
 
 /* cells */
 .ag-theme-alpine.grid-desine .ag-cell {
   display: flex !important;
   align-items: center !important;
-  padding-left: 10px !important;
-  border-right: none !important;
-  font-size: 14px;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.5;
+  padding-left: 28px !important;
+  padding-right: 12px !important;
+  border-right: 1px solid #e8f0ff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #000811 !important;
+  overflow: visible !important;
+  text-overflow: clip;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+.ag-theme-alpine.grid-desine .ag-cell-hover{
+
+    font-weight:bold !important;
+    
+    
 }
 
 /* Mobile responsiveness */
 @media (max-width: 640px) {
   .grid-desine {
-    --ag-header-height: 48px !important;
+    --ag-header-height: 55px !important;
     border-radius: 12px;
   }
 
   .ag-theme-alpine.grid-desine .ag-header-cell-label {
-    font-size: 11px !important;
-    padding: 0 4px !important;
+    font-size: 13px !important;
+    padding: 0 6px !important;
   }
 
   .ag-theme-alpine.grid-desine .ag-cell {
-    font-size: 11px !important;
-    padding-left: 6px !important;
+    font-size: 13px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 
   .ag-theme-alpine.grid-desine .ag-row {
-    margin: 3px 0 !important;
+    margin: 0 !important;
   }
 
   .ag-theme-alpine.grid-desine .ag-paging-panel {
-    font-size: 11px !important;
+    font-size: 12px !important;
   }
 }
 
@@ -84,21 +115,23 @@
   width: 100%;
 }
 .mobile-table thead th {
-  background: #e6eefb;
-  color: #03306b;
-  font-weight: 700;
+  background: #d7e6ff;
+  color: #0469f7;
+  font-weight: 800;
   text-align: left;
-  padding: 8px 12px;
-  border-bottom: 1px solid #d6e3fb;
+  padding: 12px 10px;
+  border-bottom: 2px solid #8bb4ff;
   white-space: nowrap;
-  font-size: 12px;
+  font-size: 13px;
+  min-width: 80px;
 }
 .mobile-table tbody td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #f1f5fb;
-  font-size: 13px;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e8f0ff;
+  font-size: 14px;
   white-space: nowrap;
-  color: #203247;
+  color: #334d6e;
+  font-weight: 500;
 }
 .mobile-table tr:nth-child(even) td {
   background: #fbfdff;
@@ -149,10 +182,22 @@
 .cell-email,
 .cell-position,
 .cell-name,
-.cell-location {
+.cell-location,
+.cell-age,
+.cell-salary,
+.cell-performance,
+.cell-projects,
+.cell-manager,
+.cell-hiredate {
     color: #334d6e !important;
     font-weight: 600 !important;
-    
     cursor: pointer;
 }
 
+/* Table container*/
+.table-container{
+
+    padding-left:2px;
+    padding-right: 0px;
+    width:1430px;
+}

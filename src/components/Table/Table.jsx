@@ -37,10 +37,11 @@ function Table({ employees: allEmployees }) {
             {
                 headerName: "ID",
                 field: "id",
-                width: 70,
+                width: 80,
                 sortable: true,
                 cellClass: "cell-id",
-                minWidth: 60
+                minWidth: 70,
+                
             },
 
             {
@@ -48,45 +49,45 @@ function Table({ employees: allEmployees }) {
                 valueGetter: (params) => {
                     return params.data.firstName + " " + params.data.lastName;
                 },
-                flex: 1.5,
+                flex: 2,
                 sortable: true,
                 cellClass: "cell-name",
-                minWidth: 120
+                minWidth: 160
             },
 
             {
                 headerName: "Email",
                 field: "email",
-                flex: 1.8,
+                flex: 2.6,
                 cellClass: "cell-email",
-                minWidth: 140,
+                minWidth: 250,
                 hide: isMobile
             },
 
             {
                 headerName: "Department",
                 field: "department",
-                flex: 1,
+                flex: 1.2,
                 cellClass: "cell-dept",
-                minWidth: 110,
+                minWidth: 170,
                 hide: isMobile
             },
 
             {
                 headerName: "Position",
                 field: "position",
-                flex: 1.2,
+                flex: 1.4,
                 cellClass: "cell-position",
-                minWidth: 120,
+                minWidth: 180,
                 hide: isMobile
             },
 
             {
                 headerName: "Skills",
                 field: "skills",
-                flex: 2,
+                flex: 2.2,
                 cellClass: "cell-position",
-                minWidth: 150,
+                minWidth: 300,
                 hide: isMobile,
                 cellRenderer: (params) => {
                     const skills = params.data.skills;
@@ -97,16 +98,73 @@ function Table({ employees: allEmployees }) {
             {
                 headerName: "Location",
                 field: "location",
-                flex: 0.9,
+                flex: 1.1,
                 cellClass: "cell-location",
-                minWidth: 100,
+                minWidth: 130,
+                hide: isMobile
+            },
+
+            {
+                headerName: "Age",
+                field: "age",
+                width: 90,
+                cellClass: "cell-age",
+                minWidth: 80,
+                hide: isMobile
+            },
+
+            {
+                headerName: "Salary",
+                field: "salary",
+                flex: 1.2,
+                cellClass: "cell-salary",
+                minWidth: 140,
+                hide: isMobile,
+                cellRenderer: (params) => {
+                    return params.data.salary ? `$${(params.data.salary / 1000).toFixed(0)}K` : "N/A";
+                }
+            },
+
+            {
+                headerName: "Performance",
+                field: "performanceRating",
+                width: 120,
+                cellClass: "cell-performance",
+                minWidth: 160,
+                hide: isMobile
+            },
+
+            {
+                headerName: "Projects",
+                field: "projectsCompleted",
+                width: 110,
+                cellClass: "cell-projects",
+                minWidth: 115,
+                hide: isMobile
+            },
+
+            {
+                headerName: "Manager",
+                field: "manager",
+                flex: 1.3,
+                cellClass: "cell-manager",
+                minWidth: 150,
+                hide: isMobile
+            },
+
+            {
+                headerName: "Hire Date",
+                field: "hireDate",
+                flex: 1.2,
+                cellClass: "cell-hiredate",
+                minWidth: 140,
                 hide: isMobile
             },
 
             {
                 headerName: "Active",
                 field: "isActive",
-                width: 90,
+                 minWidth: 140,
                 cellRenderer: ActiveBadge,
                 cellClass: "cell-active"
             }
@@ -228,6 +286,12 @@ function Table({ employees: allEmployees }) {
                                         <th>Position</th>
                                         <th>Skills</th>
                                         <th>Location</th>
+                                        <th>Age</th>
+                                        <th>Salary</th>
+                                        <th>Performance</th>
+                                        <th>Projects</th>
+                                        <th>Manager</th>
+                                        <th>Hire Date</th>
                                         <th>Active</th>
                                     </tr>
                                 </thead>
@@ -242,24 +306,30 @@ function Table({ employees: allEmployees }) {
                                                 <td className="py-2 px-3">{emp.position}</td>
                                                 <td className="py-2 px-3">{Array.isArray(emp.skills) ? emp.skills.join(', ') : ''}</td>
                                                 <td className="py-2 px-3">{emp.location}</td>
+                                                <td className="py-2 px-3">{emp.age}</td>
+                                                <td className="py-2 px-3">${(emp.salary / 1000).toFixed(0)}K</td>
+                                                <td className="py-2 px-3">{emp.performanceRating}</td>
+                                                <td className="py-2 px-3">{emp.projectsCompleted}</td>
+                                                <td className="py-2 px-3">{emp.manager || 'N/A'}</td>
+                                                <td className="py-2 px-3">{emp.hireDate}</td>
                                                 <td className="py-2 px-3"><span className={emp.isActive ? 'active-badge' : 'inactive-badge'}>{emp.isActive ? 'Active' : 'Inactive'}</span></td>
                                             </tr>
                                         ))
                                     ) : (
-                                        <tr><td colSpan={8} className="text-center text-gray-600 p-6">No records found.</td></tr>
+                                        <tr><td colSpan={14} className="text-center text-gray-600 p-6">No records found.</td></tr>
                                     )}
                                 </tbody>
                             </table>
                         </div>
                     ) : (
-                        // Desktop/tablet: AG Grid with horizontal scroll support
+                        // Desktop or tablet: AG Grid with horizontal scroll support
                         <div className="overflow-x-auto px-4 md:px-0">
                             <div style={{ minWidth: effectiveMinWidth }}>
                                 <div
                                     className="ag-theme-alpine grid-desine w-full"
                                         style={{
-                                            minHeight: "420px",
-                                            height: "calc(100vh - 220px)",
+                                            minHeight: "400px",
+                                            height: "calc(100vh - 460px)",
                                         }}
                                 >
                                     <AgGridReact
