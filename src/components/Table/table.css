@@ -1,148 +1,167 @@
-
-.grid-desine {
+/* ======================================================
+   MAIN AG GRID CONTAINER (FULLY RESPONSIVE)
+====================================================== */
+.ag-theme-alpine.grid-desine {
   background: linear-gradient(145deg, #eef3ff, #d1e0fc) !important;
   border-radius: 18px;
   border: 1px solid rgba(140, 180, 255, 0.4);
   box-shadow: 0px 8px 25px rgba(0, 60, 160, 0.1);
   backdrop-filter: blur(8px);
+
   --ag-header-height: 90px !important;
   --ag-row-height: 48px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
 }
 
-/* header design */
+
+/* ======================================================
+                     HEADER FIXED
+====================================================== */
 .ag-theme-alpine.grid-desine .ag-header {
   background: linear-gradient(to right, #d7e6ff, #c8dbff) !important;
   border-bottom: 2px solid #8298c2 !important;
-  height: 90px !important;
-  padding-top:14px;
+
+  /* NO FLEX – AG Grid internally manages layout */
+  min-height: 90px !important;
+  height: auto !important;
+
+  padding-top: 14px;
   padding-bottom: 15px;
-  align-items:center !important;
-  
 }
 
-.ag-theme-alpine.grid-desine {
-  --ag-header-height: 90px !important;
-}
-
-
+/* HEADER CELL */
 .ag-theme-alpine.grid-desine .ag-header-cell-label {
-   display: flex !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+
+  padding: 0 6px !important;
+
+  white-space: nowrap !important;
+  overflow: visible !important;
 
   font-size: 16px !important;
   font-weight: 800 !important;
   color: #0469f7 !important;
 
-  
-  height: auto !important;        
-  white-space: nowrap !important;  
   text-align: center !important;
-  line-height: normal !important;
-
-  padding: 0 8px !important;      
+  height: auto !important;
 }
 
-/* rows */
+
+/* ======================================================
+                     ROWS
+====================================================== */
 .ag-theme-alpine.grid-desine .ag-row {
   background: #ffffff !important;
- 
-  margin: 0 !important;
   transition: 0.12s ease !important;
-  box-shadow: none !important;
 }
 
 .ag-theme-alpine.grid-desine .ag-row-hover {
-  background: #babbbc !important;
-  font-weight:bold !important;
-  
-  
+  background: #edf2ff !important;
+  font-weight: bold !important;
 }
 
-/* cells */
+
+/* ======================================================
+                     CELLS
+====================================================== */
 .ag-theme-alpine.grid-desine .ag-cell {
   display: flex !important;
   align-items: center !important;
-  padding-left: 28px !important;
+
+  padding-left: 18px !important;
   padding-right: 12px !important;
+
   border-right: 1px solid #e8f0ff !important;
+
   font-size: 14px !important;
   font-weight: 500 !important;
+
   color: #000811 !important;
-  overflow: visible !important;
-  text-overflow: clip;
-  line-height: 1.6;
-  white-space: normal;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
 }
 
-.ag-theme-alpine.grid-desine .ag-cell-hover{
 
-    font-weight:bold !important;
-    
-    
-}
-
-/* Mobile responsiveness */
+/* ======================================================
+                     MOBILE RESPONSIVE
+====================================================== */
 @media (max-width: 640px) {
-  .grid-desine {
+  .ag-theme-alpine.grid-desine {
     --ag-header-height: 55px !important;
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
   .ag-theme-alpine.grid-desine .ag-header-cell-label {
     font-size: 13px !important;
-    padding: 0 6px !important;
+    padding: 0 4px !important;
   }
 
   .ag-theme-alpine.grid-desine .ag-cell {
-    font-size: 13px !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
-
-  .ag-theme-alpine.grid-desine .ag-row {
-    margin: 0 !important;
-  }
-
-  .ag-theme-alpine.grid-desine .ag-paging-panel {
     font-size: 12px !important;
+    padding-left: 10px !important;
   }
 }
 
-/* Mobile HTML table styling used when AG Grid is not ideal on very small screens */
+
+/* ======================================================
+              MOBILE SIMPLE HTML TABLE
+====================================================== */
 .mobile-table {
   border-collapse: collapse;
   width: 100%;
 }
+
 .mobile-table thead th {
   background: #d7e6ff;
   color: #0469f7;
+
   font-weight: 800;
-  text-align: left;
-  padding: 12px 10px;
+
+  padding: 10px;
   border-bottom: 2px solid #8bb4ff;
+
   white-space: nowrap;
   font-size: 13px;
-  min-width: 80px;
+  text-align: left;
 }
+
 .mobile-table tbody td {
-  padding: 12px 10px;
+  padding: 10px !important;
   border-bottom: 1px solid #e8f0ff;
-  font-size: 14px;
+
   white-space: nowrap;
+  font-size: 13px;
   color: #334d6e;
   font-weight: 500;
 }
+
 .mobile-table tr:nth-child(even) td {
   background: #fbfdff;
 }
 
+/* Very small screens */
 @media (max-width: 420px) {
-  .mobile-table thead th { font-size: 11px; padding: 6px 8px; }
-  .mobile-table tbody td { font-size: 12px; padding: 8px 8px; }
+  .mobile-table thead th {
+    font-size: 11px !important;
+    padding: 6px 8px !important;
+  }
+
+  .mobile-table tbody td {
+    font-size: 11px !important;
+    padding: 6px 8px !important;
+  }
 }
 
-/* badges */
+
+/* ======================================================
+                     BADGES
+====================================================== */
 .active-badge {
   color: #1302fa;
   padding: 6px 12px;
@@ -162,13 +181,16 @@
 @media (max-width: 640px) {
   .active-badge,
   .inactive-badge {
-    padding: 4px 8px;
-    font-size: 10px;
-    border-radius: 8px;
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    border-radius: 8px !important;
   }
 }
 
-/* pagination */
+
+/* ======================================================
+                     PAGINATION
+====================================================== */
 .ag-theme-alpine.grid-desine .ag-paging-panel {
   background: transparent !important;
   font-weight: 700 !important;
@@ -177,6 +199,10 @@
   margin-top: 8px;
 }
 
+
+/* ======================================================
+              COMMON CELL TEXT COLOR
+====================================================== */
 .cell-id,
 .cell-dept,
 .cell-email,
@@ -189,15 +215,18 @@
 .cell-projects,
 .cell-manager,
 .cell-hiredate {
-    color: #334d6e !important;
-    font-weight: 600 !important;
-    cursor: pointer;
+  color: #334d6e !important;
+  font-weight: 600 !important;
+  cursor: pointer;
 }
 
-/* Table container*/
-.table-container{
 
-    padding-left:2px;
-    padding-right: 0px;
-    width:1430px;
+/* ======================================================
+              MAIN TABLE CONTAINER WRAPPER
+====================================================== */
+.table-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding: 0 !important;
 }
